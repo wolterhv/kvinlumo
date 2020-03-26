@@ -1,7 +1,7 @@
 all: compile flash
 
 compile:
-	arduino-cli compile --fqbn arduino:avr:uno .
+	arduino-cli compile --fqbn arduino:avr:uno 1031_bikelights.ino machinestates.c buttons.c
 	# arduino-cli compile --fqbn arduino:avr:uno -utp /dev/ttyACM0 .
 
 flash:

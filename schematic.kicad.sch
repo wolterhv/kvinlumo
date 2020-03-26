@@ -1,0 +1,222 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Module:Arduino_UNO_R2 A?
+U 1 1 5E7A097D
+P 5000 3800
+F 0 "A?" H 5000 4981 50  0000 C CNN
+F 1 "Arduino_UNO_R2" H 5000 4890 50  0000 C CNN
+F 2 "Module:Arduino_UNO_R2" H 5000 3800 50  0001 C CIN
+F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 5000 3800 50  0001 C CNN
+	1    5000 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:MNMOS M?
+U 1 1 5E7A9FAF
+P 3850 4550
+F 0 "M?" H 4138 4596 50  0000 L CNN
+F 1 "MNMOS" H 4138 4505 50  0000 L CNN
+F 2 "" H 3825 4550 50  0001 C CNN
+F 3 "~" H 3825 4550 50  0001 C CNN
+	1    3850 4550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E7ABCA8
+P 6750 3300
+F 0 "R?" H 6820 3346 50  0000 L CNN
+F 1 "R" H 6820 3255 50  0000 L CNN
+F 2 "" V 6680 3300 50  0001 C CNN
+F 3 "~" H 6750 3300 50  0001 C CNN
+	1    6750 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT RV?
+U 1 1 5E7AC30C
+P 7300 3300
+F 0 "RV?" H 7231 3346 50  0000 R CNN
+F 1 "R_POT" H 7231 3255 50  0000 R CNN
+F 2 "" H 7300 3300 50  0001 C CNN
+F 3 "~" H 7300 3300 50  0001 C CNN
+	1    7300 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:L7805 U?
+U 1 1 5E7B3D48
+P 3300 2850
+F 0 "U?" H 3300 3092 50  0000 C CNN
+F 1 "L7805" H 3300 3001 50  0000 C CNN
+F 2 "" H 3325 2700 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 3300 2800 50  0001 C CNN
+	1    3300 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5E7BE61E
+P 6150 4100
+F 0 "SW?" V 6196 4052 50  0000 R CNN
+F 1 "SW_Push" V 6105 4052 50  0000 R CNN
+F 2 "" H 6150 4300 50  0001 C CNN
+F 3 "~" H 6150 4300 50  0001 C CNN
+	1    6150 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5E7BFA96
+P 6650 4050
+F 0 "SW?" H 6650 4335 50  0000 C CNN
+F 1 "SW_Push" H 6650 4244 50  0000 C CNN
+F 2 "" H 6650 4250 50  0001 C CNN
+F 3 "~" H 6650 4250 50  0001 C CNN
+	1    6650 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E7C01C8
+P 5000 5150
+F 0 "#PWR?" H 5000 4900 50  0001 C CNN
+F 1 "GND" H 5005 4977 50  0000 C CNN
+F 2 "" H 5000 5150 50  0001 C CNN
+F 3 "" H 5000 5150 50  0001 C CNN
+	1    5000 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Battery BT?
+U 1 1 5E7C3AA7
+P 1250 3800
+F 0 "BT?" H 1358 3846 50  0000 L CNN
+F 1 "Battery" H 1358 3755 50  0000 L CNN
+F 2 "" V 1250 3860 50  0001 C CNN
+F 3 "~" V 1250 3860 50  0001 C CNN
+	1    1250 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 2850 1700 2850
+Wire Wire Line
+	1700 2850 1250 3600
+$Comp
+L power:GND #PWR?
+U 1 1 5E7CDAEA
+P 1700 4150
+F 0 "#PWR?" H 1700 3900 50  0001 C CNN
+F 1 "GND" H 1705 3977 50  0000 C CNN
+F 2 "" H 1700 4150 50  0001 C CNN
+F 3 "" H 1700 4150 50  0001 C CNN
+	1    1700 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:MNMOS M?
+U 1 1 5E7D240A
+P 3550 4100
+F 0 "M?" H 3838 4146 50  0000 L CNN
+F 1 "MNMOS" H 3838 4055 50  0000 L CNN
+F 2 "" H 3525 4100 50  0001 C CNN
+F 3 "~" H 3525 4100 50  0001 C CNN
+	1    3550 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:MNMOS M?
+U 1 1 5E7D2771
+P 3200 3800
+F 0 "M?" H 3488 3846 50  0000 L CNN
+F 1 "MNMOS" H 3488 3755 50  0000 L CNN
+F 2 "" H 3175 3800 50  0001 C CNN
+F 3 "~" H 3175 3800 50  0001 C CNN
+	1    3200 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:MNMOS M?
+U 1 1 5E7D2AF7
+P 1950 5950
+F 0 "M?" H 2238 5996 50  0000 L CNN
+F 1 "MNMOS" H 2238 5905 50  0000 L CNN
+F 2 "" H 1925 5950 50  0001 C CNN
+F 3 "~" H 1925 5950 50  0001 C CNN
+	1    1950 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:MNMOS M?
+U 1 1 5E7D2F0F
+P 2500 3700
+F 0 "M?" H 2788 3746 50  0000 L CNN
+F 1 "MNMOS" H 2788 3655 50  0000 L CNN
+F 2 "" H 2475 3700 50  0001 C CNN
+F 3 "~" H 2475 3700 50  0001 C CNN
+	1    2500 3700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4900 2350 3600 2350
+Wire Wire Line
+	3600 2350 3600 2850
+$Comp
+L Device:LED_Series D?
+U 1 1 5E7DDF57
+P 2050 5000
+F 0 "D?" V 2096 4913 50  0000 R CNN
+F 1 "LED_Series" V 2005 4913 50  0000 R CNN
+F 2 "" H 1950 5000 50  0001 C CNN
+F 3 "~" H 1950 5000 50  0001 C CNN
+	1    2050 5000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E7E2141
+P 2050 5500
+F 0 "R?" H 2120 5546 50  0000 L CNN
+F 1 "R" H 2120 5455 50  0000 L CNN
+F 2 "" V 1980 5500 50  0001 C CNN
+F 3 "~" H 2050 5500 50  0001 C CNN
+	1    2050 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E7E334A
+P 2050 6900
+F 0 "#PWR?" H 2050 6650 50  0001 C CNN
+F 1 "GND" H 2055 6727 50  0000 C CNN
+F 2 "" H 2050 6900 50  0001 C CNN
+F 3 "" H 2050 6900 50  0001 C CNN
+	1    2050 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 4750 2050 4550
+Wire Wire Line
+	2050 5250 2050 5350
+Wire Wire Line
+	2050 5650 2050 5750
+Wire Wire Line
+	2150 6150 2050 6150
+Wire Wire Line
+	2050 6150 2050 6900
+Connection ~ 2050 6150
+$EndSCHEMATC
