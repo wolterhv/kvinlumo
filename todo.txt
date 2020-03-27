@@ -1,1 +1,7 @@
 (A) 2020-03-26 Implement input handling capable of handling single presses, double presses and held presses for buttons
+Define project name
+Define file naming conventions
+Define coding style guidelines
+Populate README file
+Clarify requirements documentation
+Make an index of files and descriptions

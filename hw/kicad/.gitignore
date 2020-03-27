@@ -1,0 +1,4 @@
+*.bak
+schematic.kicad-rescue.dcm
+schematic.kicad-rescue.lib
+sym-lib-table
