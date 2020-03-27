@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:schematic.kicad-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 2
 Title ""
 Date ""
 Rev ""
@@ -219,4 +220,10 @@ Wire Wire Line
 Wire Wire Line
 	2050 6150 2050 6900
 Connection ~ 2050 6150
+$Sheet
+S 750  700  1200 750 
+U 5E7DEF2E
+F0 "Power" 50
+F1 "Power.sch" 50
+$EndSheet
 $EndSCHEMATC
