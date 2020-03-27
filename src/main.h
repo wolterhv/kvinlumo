@@ -4,8 +4,8 @@
 //               x
 // License:      x
 
-#ifndef H_BIKELIGHTS
-#define H_BIKELIGHTS
+#ifndef H_MAIN
+#define H_MAIN
 
 bool
 val_is_within_range(
@@ -14,4 +14,4 @@ val_is_within_range(
         const int b);
 
 
-#endif // H_BIKELIGHTS
+#endif // H_MAIN

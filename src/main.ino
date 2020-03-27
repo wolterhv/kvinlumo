@@ -6,7 +6,7 @@
 
 #include "machinestates.h"
 #include "buttons.h"
-#include "bikelights.h"
+#include "main.h"
 
 #define   CHRONO_RESET          7000
 #define   POT1_MIN              0

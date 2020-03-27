@@ -9,7 +9,7 @@
 
 #include <Arduino.h>
 #include <stdint.h>
-#include "bikelights.h"
+#include "main.h"
 
 #define BTN_DEL_MIN        10
 #define BTN_DEL_HOLD       500
