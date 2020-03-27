@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:schematic.kicad-cache
+LIBS:main.kicad-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -224,6 +224,6 @@ $Sheet
 S 750  700  1200 750 
 U 5E7DEF2E
 F0 "Power" 50
-F1 "Power.sch" 50
+F1 "power.sch" 50
 $EndSheet
 $EndSCHEMATC
