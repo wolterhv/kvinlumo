@@ -5,3 +5,7 @@ Define coding style guidelines
 Populate README file
 Clarify requirements documentation
 Make an index of files and descriptions
+fix ctags (only ino and h files)
+fix that cannot read into /dev/ttyACM0 with cat
+fix coding style guidelines
+update this todo list

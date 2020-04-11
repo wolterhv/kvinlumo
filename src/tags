@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+BL_PER_MAX	main.ino	/^#define   BL_PER_MAX /;"	d	file:
+BL_PER_MIN	main.ino	/^#define   BL_PER_MIN /;"	d	file:
+BL_POT_FACT	main.ino	/^#define   BL_POT_FACT /;"	d	file:
+BTN_CB_DOUBLE_PRESS	buttons.h	/^        BTN_CB_DOUBLE_PRESS$/;"	e	enum:__anon7be6e96a0303
+BTN_CB_LONG_PRESS	buttons.h	/^        BTN_CB_LONG_PRESS,$/;"	e	enum:__anon7be6e96a0303
+BTN_CB_SINGLE_PRESS	buttons.h	/^        BTN_CB_SINGLE_PRESS,$/;"	e	enum:__anon7be6e96a0303
+BTN_DEL_BMAX	buttons.h	/^#define BTN_DEL_BMAX /;"	d
+BTN_DEL_HOLD	buttons.h	/^#define BTN_DEL_HOLD /;"	d
+BTN_DEL_MIN	buttons.h	/^#define BTN_DEL_MIN /;"	d
+BTN_EV_DP	buttons.h	/^        BTN_EV_DP,$/;"	e	enum:__anon7be6e96a0203
+BTN_EV_HL	buttons.h	/^        BTN_EV_HL,$/;"	e	enum:__anon7be6e96a0203
+BTN_EV_NN	buttons.h	/^        BTN_EV_NN$/;"	e	enum:__anon7be6e96a0203
+BTN_EV_SP	buttons.h	/^        BTN_EV_SP,$/;"	e	enum:__anon7be6e96a0203
+BTN_MIN_STATE_AGE	buttons.h	/^#define BTN_MIN_STATE_AGE /;"	d
+BTN_POS_DOWN	buttons.h	/^        BTN_POS_DOWN,$/;"	e	enum:__anon7be6e96a0403
+BTN_POS_UNKNOWN	buttons.h	/^        BTN_POS_UNKNOWN,$/;"	e	enum:__anon7be6e96a0403
+BTN_POS_UP	buttons.h	/^        BTN_POS_UP$/;"	e	enum:__anon7be6e96a0403
+BTN_STATE_LIFE_MAX	buttons.h	/^#define BTN_STATE_LIFE_MAX /;"	d
+BTN_TIMER_DOUBLE_PRESS	buttons.h	/^#define BTN_TIMER_DOUBLE_PRESS /;"	d
+BTN_TIMER_LONG_PRESS	buttons.h	/^#define BTN_TIMER_LONG_PRESS /;"	d
+BTN_TIMER_SINGLE_PRESS	buttons.h	/^#define BTN_TIMER_SINGLE_PRESS /;"	d
+Button	buttons.h	/^} Button;$/;"	t	typeref:struct:__anon7be6e96a0108
+CHRONO_RESET	main.ino	/^#define   CHRONO_RESET /;"	d	file:
+DynLight	main.ino	/^} DynLight;$/;"	t	typeref:struct:__anon3b5b2b1e0108	file:
+GH_BTN_DPRESSED	main.h	/^        GH_BTN_DPRESSED$/;"	e	enum:__anon0d3808400103
+GH_BTN_LPRESSED	main.h	/^        GH_BTN_LPRESSED,$/;"	e	enum:__anon0d3808400103
+GH_BTN_SPRESSED	main.h	/^        GH_BTN_SPRESSED,$/;"	e	enum:__anon0d3808400103
+GH_BTN_UNKNOWN	main.h	/^        GH_BTN_UNKNOWN,$/;"	e	enum:__anon0d3808400103
+GestureHandler	main.h	/^} GestureHandler;$/;"	t	typeref:struct:_GestureHandler
+H_BUTTONS	buttons.h	/^#define H_BUTTONS$/;"	d
+H_MACHINESTATES	machinestates.h	/^#define H_MACHINESTATES$/;"	d
+H_MAIN	main.h	/^#define H_MAIN$/;"	d
+MachineStates	machinestates.h	/^} MachineStates;$/;"	t	typeref:struct:__anon78d3a2e40108
+PHR_MAX	main.ino	/^#define   PHR_MAX /;"	d	file:
+PHR_MIN	main.ino	/^#define   PHR_MIN /;"	d	file:
+POT1_MAX	main.ino	/^#define   POT1_MAX /;"	d	file:
+POT1_MIN	main.ino	/^#define   POT1_MIN /;"	d	file:
+POT2_MAX	main.ino	/^#define   POT2_MAX /;"	d	file:
+POT2_MIN	main.ino	/^#define   POT2_MIN /;"	d	file:
+SYSTEM_CYCLE_PERIOD	main.ino	/^#define   SYSTEM_CYCLE_PERIOD /;"	d	file:
+S_AMB_DAY	machinestates.h	/^        S_AMB_DAY,      \/\/ day$/;"	e	enum:__anon78d3a2e40403
+S_AMB_NIGHT	machinestates.h	/^        S_AMB_NIGHT     \/\/ night$/;"	e	enum:__anon78d3a2e40403
+S_BRK_BR	machinestates.h	/^        S_BRK_BR,       \/\/ braking$/;"	e	enum:__anon78d3a2e40203
+S_BRK_NB	machinestates.h	/^        S_BRK_NB        \/\/ not braking$/;"	e	enum:__anon78d3a2e40203
+S_HEA_FWH	machinestates.h	/^        S_HEA_FWH,      \/\/ forward$/;"	e	enum:__anon78d3a2e40303
+S_HEA_SL	machinestates.h	/^        S_HEA_SL,       \/\/ steering left$/;"	e	enum:__anon78d3a2e40303
+S_HEA_SR	machinestates.h	/^        S_HEA_SR        \/\/ steering right$/;"	e	enum:__anon78d3a2e40303
+S_LMO_BL	machinestates.h	/^        S_LMO_BL        \/\/ blinking$/;"	e	enum:__anon78d3a2e40503
+S_LMO_ST	machinestates.h	/^        S_LMO_ST,       \/\/ steady mode$/;"	e	enum:__anon78d3a2e40503
+_GestureHandler	main.h	/^typedef struct _GestureHandler {$/;"	s
+__anon0d3808400103	main.h	/^enum {$/;"	g
+__anon3b5b2b1e0108	main.ino	/^{$/;"	s	file:
+__anon78d3a2e40108	machinestates.h	/^{$/;"	s
+__anon78d3a2e40203	machinestates.h	/^enum {$/;"	g
+__anon78d3a2e40303	machinestates.h	/^enum {$/;"	g
+__anon78d3a2e40403	machinestates.h	/^enum {$/;"	g
+__anon78d3a2e40503	machinestates.h	/^enum {$/;"	g
+__anon7be6e96a0108	buttons.h	/^{$/;"	s
+__anon7be6e96a0203	buttons.h	/^enum {$/;"	g
+__anon7be6e96a0303	buttons.h	/^enum {$/;"	g
+__anon7be6e96a0403	buttons.h	/^enum {$/;"	g
+anti_blinker	main.ino	/^        uint8_t   anti_blinker;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint8_t	file:
+anti_modelight	main.ino	/^        uint8_t   anti_modelight;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint8_t	file:
+bl_fl	main.ino	/^int    bl_fl;$/;"	v	typeref:typename:int
+bl_fr	main.ino	/^int    bl_fr;$/;"	v	typeref:typename:int
+bl_hl	main.ino	/^int    bl_hl;$/;"	v	typeref:typename:int
+bl_rl	main.ino	/^int    bl_rl;$/;"	v	typeref:typename:int
+bl_rr	main.ino	/^int    bl_rr;$/;"	v	typeref:typename:int
+blinker	main.ino	/^        uint8_t   blinker;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint8_t	file:
+button_callback_empty	buttons.ino	/^button_callback_empty (void *data) $/;"	f	typeref:typename:void
+button_connect	buttons.ino	/^button_connect (Button *button,$/;"	f	typeref:typename:void
+button_set_callback_data	buttons.ino	/^button_set_callback_data (Button *button,$/;"	f	typeref:typename:void
+button_setup	buttons.ino	/^button_setup (Button        *button,$/;"	f	typeref:typename:void
+button_update	buttons.ino	/^button_update (Button        *button,$/;"	f	typeref:typename:void
+callback_both_dpressed	main.h	/^        void (*callback_both_dpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_both_lpressed	main.h	/^        void (*callback_both_lpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_both_spressed	main.h	/^        void (*callback_both_spressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_data	buttons.h	/^        void *callback_data;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:void *
+callback_data	main.h	/^        void *callback_data;$/;"	m	struct:_GestureHandler	typeref:typename:void *
+callback_double_press	buttons.h	/^        void (*callback_double_press)(void*);$/;"	m	struct:__anon7be6e96a0108	typeref:typename:void (*)(void *)
+callback_left_dpressed	main.h	/^        void (*callback_left_dpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_left_lpressed	main.h	/^        void (*callback_left_lpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_left_spressed	main.h	/^        void (*callback_left_spressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_long_press	buttons.h	/^        void (*callback_long_press)(void*);$/;"	m	struct:__anon7be6e96a0108	typeref:typename:void (*)(void *)
+callback_right_dpressed	main.h	/^        void (*callback_right_dpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_right_lpressed	main.h	/^        void (*callback_right_lpressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_right_spressed	main.h	/^        void (*callback_right_spressed)(void*);$/;"	m	struct:_GestureHandler	typeref:typename:void (*)(void *)
+callback_set_lbutton_double_pressed	main.ino	/^callback_set_lbutton_double_pressed (void *gestureHandler)$/;"	f	typeref:typename:void
+callback_set_lbutton_long_pressed	main.ino	/^callback_set_lbutton_long_pressed (void *gestureHandler)$/;"	f	typeref:typename:void
+callback_set_lbutton_single_pressed	main.ino	/^callback_set_lbutton_single_pressed (void *gestureHandler)$/;"	f	typeref:typename:void
+callback_set_rbutton_long_pressed	main.ino	/^callback_set_rbutton_long_pressed (void *gestureHandler)$/;"	f	typeref:typename:void
+callback_set_rbutton_single_pressed	main.ino	/^callback_set_rbutton_single_pressed (void *gestureHandler)$/;"	f	typeref:typename:void
+callback_single_press	buttons.h	/^        void (*callback_single_press)(void*);$/;"	m	struct:__anon7be6e96a0108	typeref:typename:void (*)(void *)
+callback_toggle_amb	main.ino	/^callback_toggle_amb (void *callback_data) $/;"	f	typeref:typename:void
+callback_toggle_brk	main.ino	/^callback_toggle_brk (void *callback_data)$/;"	f	typeref:typename:void
+callback_toggle_lmo	main.ino	/^callback_toggle_lmo (void *callback_data)$/;"	f	typeref:typename:void
+callback_toggle_turn_left	main.ino	/^callback_toggle_turn_left (void *callback_data)$/;"	f	typeref:typename:void
+callback_toggle_turn_right	main.ino	/^callback_toggle_turn_right (void *callback_data)$/;"	f	typeref:typename:void
+chrono	main.ino	/^        uint16_t  chrono;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint16_t	file:
+cycle_period	main.ino	/^        uint16_t  cycle_period;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint16_t	file:
+duty_cycle	main.ino	/^        float     duty_cycle;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:float	file:
+dynLight	main.ino	/^DynLight          dynLight;$/;"	v	typeref:typename:DynLight
+dynlight_update	main.ino	/^dynlight_update (DynLight *dynLight,$/;"	f	typeref:typename:void
+gestureHandler	main.ino	/^GestureHandler    gestureHandler;$/;"	v	typeref:typename:GestureHandler
+gesturehandler_callback_empty	main.ino	/^gesturehandler_callback_empty (void *data)$/;"	f	typeref:typename:void
+gesturehandler_init	main.ino	/^gesturehandler_init (GestureHandler *gestureHandler,$/;"	f	typeref:typename:void
+gesturehandler_setup	main.ino	/^gesturehandler_setup (GestureHandler *gh)$/;"	f	typeref:typename:void
+gesturehandler_update	main.ino	/^gesturehandler_update (GestureHandler *gh,$/;"	f	typeref:typename:void
+id	buttons.h	/^        uint8_t id;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint8_t
+leftButton	main.ino	/^Button            leftButton;$/;"	v	typeref:typename:Button
+loop	main.ino	/^loop () $/;"	f	typeref:typename:void
+machineStates	main.ino	/^MachineStates     machineStates;$/;"	v	typeref:typename:MachineStates
+machine_states_configure	machinestates.ino	/^machine_states_configure (MachineStates *ms,$/;"	f	typeref:typename:void
+machine_states_copy	machinestates.ino	/^machine_states_copy (const MachineStates *src,$/;"	f	typeref:typename:void
+modelight	main.ino	/^        uint8_t   modelight;$/;"	m	struct:__anon3b5b2b1e0108	typeref:typename:uint8_t	file:
+pin	buttons.h	/^        uint8_t pin;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint8_t
+position_age	buttons.h	/^        uint16_t position_age;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint16_t
+position_curr	buttons.h	/^        uint8_t position_curr;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint8_t
+position_prev	buttons.h	/^        uint8_t position_prev;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint8_t
+pot	main.ino	/^float  pot;$/;"	v	typeref:typename:float
+rightButton	main.ino	/^Button            rightButton;$/;"	v	typeref:typename:Button
+sensor_amb	main.ino	/^int    sensor_amb;$/;"	v	typeref:typename:int
+sensor_pot	main.ino	/^int    sensor_pot;$/;"	v	typeref:typename:int
+set_fx	main.ino	/^set_fx (const MachineStates *states,$/;"	f	typeref:typename:void
+set_hl	main.ino	/^set_hl (const MachineStates *states,$/;"	f	typeref:typename:void
+set_lmo	main.ino	/^void set_lmo (const MachineStates *states,$/;"	f	typeref:typename:void
+set_rx	main.ino	/^set_rx (const MachineStates *states,$/;"	f	typeref:typename:void
+setup	main.ino	/^setup () $/;"	f	typeref:typename:void
+sm_amb	machinestates.h	/^        uint8_t  sm_amb;$/;"	m	struct:__anon78d3a2e40108	typeref:typename:uint8_t
+sm_brk	machinestates.h	/^        uint8_t  sm_brk;$/;"	m	struct:__anon78d3a2e40108	typeref:typename:uint8_t
+sm_hea	machinestates.h	/^        uint8_t  sm_hea;$/;"	m	struct:__anon78d3a2e40108	typeref:typename:uint8_t
+sm_lmo	machinestates.h	/^        uint8_t  sm_lmo;$/;"	m	struct:__anon78d3a2e40108	typeref:typename:uint8_t
+state	buttons.h	/^        uint8_t state;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint8_t
+state	main.h	/^        uint8_t state;$/;"	m	struct:_GestureHandler	typeref:typename:uint8_t
+state_lbutton	main.h	/^        uint8_t state_lbutton;$/;"	m	struct:_GestureHandler	typeref:typename:uint8_t
+state_rbutton	main.h	/^        uint8_t state_rbutton;$/;"	m	struct:_GestureHandler	typeref:typename:uint8_t
+time	machinestates.h	/^        double   time;$/;"	m	struct:__anon78d3a2e40108	typeref:typename:double
+time	main.ino	/^int    time;$/;"	v	typeref:typename:int
+timeout_dpress	main.h	/^        uint16_t timeout_dpress;$/;"	m	struct:_GestureHandler	typeref:typename:uint16_t
+timeout_lpress	main.h	/^        uint16_t timeout_lpress;$/;"	m	struct:_GestureHandler	typeref:typename:uint16_t
+timeout_spress	main.h	/^        uint16_t timeout_spress;$/;"	m	struct:_GestureHandler	typeref:typename:uint16_t
+timep	main.ino	/^int    timep;$/;"	v	typeref:typename:int
+timer	buttons.h	/^        uint16_t timer;$/;"	m	struct:__anon7be6e96a0108	typeref:typename:uint16_t
+timer	main.h	/^        uint16_t timer;$/;"	m	struct:_GestureHandler	typeref:typename:uint16_t
+ts	main.ino	/^int    ts;$/;"	v	typeref:typename:int
+val_is_within_range	main.ino	/^val_is_within_range (const int val, $/;"	f	typeref:typename:bool

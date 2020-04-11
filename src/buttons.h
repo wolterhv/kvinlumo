@@ -1,8 +1,7 @@
-// Author:       Wolter Hellmund Vega
-// Date:         2020-03-24
-// Description:  x
-//               x
-// License:      x
+// Project:       kvinlumo
+// Project home:  https://github.com/wolterhv/kvinlumo
+// License:       See <TOPLEVEL>/LICENSE.txt
+// Authors:       See <TOPLEVEL>/AUTHORS.txt
 
 #ifndef H_BUTTONS
 #define H_BUTTONS
@@ -15,79 +14,54 @@
 #define BTN_DEL_HOLD       500
 #define BTN_DEL_BMAX       100
 #define BTN_STATE_LIFE_MAX 3000
+#define BTN_MIN_STATE_AGE 15
 
-typedef struct {
-    uint8_t state;
-    uint16_t state_life;
-} ButtonState;
+#define BTN_TIMER_SINGLE_PRESS 300
+#define BTN_TIMER_LONG_PRESS   700
+#define BTN_TIMER_DOUBLE_PRESS 1000
 
-typedef struct {
-    ButtonState state0;
-    ButtonState state1;
-    ButtonState state2;
-    ButtonState state3;
-} ButtonStateMemory;
-
-typedef struct {
-    uint8_t id;
-    uint8_t pin;
-    ButtonStateMemory memory;
-    ButtonState *currState;
-    ButtonState *prevState;
-    uint8_t event;
+typedef struct
+{
+        uint8_t id;
+        uint8_t pin;
+        uint8_t state;
+        uint8_t position_curr;
+        uint8_t position_prev;
+        uint16_t position_age;
+        uint16_t timer;
+        void *callback_data;
+        void (*callback_long_press)(void*);
+        void (*callback_single_press)(void*);
+        void (*callback_double_press)(void*);
 } Button;
 
 enum {
-    BTN_ST_NONE,
-    BTN_ST_UP,
-    BTN_ST_DOWN
+        BTN_EV_SP,
+        BTN_EV_DP,
+        BTN_EV_HL,
+        BTN_EV_NN
 };
 
 enum {
-    BTN_EV_SP,
-    BTN_EV_DP,
-    BTN_EV_HL,
-    BTN_EV_NN
+        BTN_CB_SINGLE_PRESS,
+        BTN_CB_LONG_PRESS,
+        BTN_CB_DOUBLE_PRESS
 };
 
-void
-button_setup(
-        Button *button,
-        const uint8_t pin);
+enum {
+        BTN_POS_UNKNOWN,
+        BTN_POS_DOWN,
+        BTN_POS_UP
+};
 
-void 
-button_update(
-        Button *button,
-        const uint8_t ts);
+void button_setup                     (Button         *button,
+                                       const uint8_t   pin);
 
-void 
-button_update_state(
-        Button *button, 
-        const uint8_t state, 
-        const uint16_t state_life);
+void button_update                    (Button         *button,
+                                       const uint16_t   ts);
 
-bool 
-button_get_doublepressed(
-        Button *button);
-
-bool
-button_get_singlepressed(
-        Button *button);
-
-bool
-button_get_held(
-        Button *button);
-
-void
-button_init_state_memory(
-        Button *button);
-
-void
-button_interpret_state_memory(
-        Button *button);
-
-void
-button_clear_button_state_memory(
-        Button *button);
+void button_connect (Button *button,
+                     const uint8_t type,
+                     void (*callback_function)(void*));
 
 #endif // H_BUTTONS

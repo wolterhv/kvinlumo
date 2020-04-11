@@ -1,0 +1,104 @@
+// Header file 
+#ifndef <HEADER_NAME>_H_
+#define <HEADER_NAME>_H_
+
+global1_type global1;                       // Comment about global 1
+global2_type global2;                       // Comment about global 2
+global3_type global3_has_a_very_long_name;  // Comment about global 3 which
+                                            // needs to be broken
+global4_type global4;                       /* Comment about global 4 that also
+                                               needs to be broken into multiple
+                                               lines */
+
+return_type function_name1            (type1              param1,
+                                       unsigned long int  count,
+                                       type2              param2,
+                                       type3             *param3,
+                                       very_long_type4    param4);
+
+return_type longer_function_name      (type1              param1,
+                                       const type2       *param2);
+
+return_type even_longer_function_name (type1              param1);
+
+#endif // <HEADER_NAME>_H_
+
+// Source file
+
+// function_name:
+// @param1: description of param1
+// @param2: description of param2
+//
+// Some detailed description.
+//
+// Since: <version>
+return_type
+function_name (param1_type        param1,
+               const param2_type  param2)
+{
+        // Function body
+        if (condition) {
+                do_something ();
+                do_something_else();
+        } else if (condition2) {
+                do_another_thing ();
+        } else if (condition4 &&
+                   !condition5) {
+                fall_back_to_plan_b ();
+        }
+
+        if (condition3)
+                do_in_case_of_condition3 ();
+
+        switch (value) {
+        case 1:
+                case_1_callback ();
+        default:
+                default_case_callback ();
+        }
+
+        call_function_with_a_very_long_name(parameter1,
+                                            parameter2,
+                                            parameter3);
+
+        call_function_with_a_very_long_name_and_parameters (
+                parameter1,
+                parameter2,
+                parameter3);
+}
+
+/*
+ * call_function_with_a_very_long_name_and_parameters
+ * @parameter1: description of parameter1
+ * @parameter2: description of parameter2
+ *
+ * Description
+ *
+ * Since: <version>
+ */
+return_type
+call_function_with_a_very_long_name_and_parameters (
+        param1_type parameter1,
+        param2_type parameter2,
+        param3_type parameter3)
+{
+        // Function definition
+}
+
+// TypeName
+// @member: description of member
+// @name: description of name
+//
+// Description of struct
+//
+// Since: <version>
+typedef struct _TypeName
+{
+        int    member;
+        char  *name;
+
+        int    group2_variable;
+        float  group2_variable_2;
+} TypeName;
+          
+// vim: set tw=79 ts=8 sw=8 et cin cino+=(0 ft=c : 

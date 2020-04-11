@@ -1,124 +1,155 @@
-// Author:       Wolter Hellmund Vega
-// Date:         2020-03-24
-// Description:  x
-//               x
-// License:      x
+// Project:       kvinlumo
+// Project home:  https://github.com/wolterhv/kvinlumo
+// License:       See <TOPLEVEL>/LICENSE.txt
+// Authors:       See <TOPLEVEL>/AUTHORS.txt
 
 #include "buttons.h"
 
 void
-button_setup(
-        Button *button,
-        const uint8_t pin) {
-    button_init_state_memory(button);
-    button->id = 0;
-    button->pin = pin;
-    button->event = BTN_EV_NN;  
-    button->currState = &button->memory.state0;
-    button->prevState = &button->memory.state1;
-}
-
-void
-button_init_state_memory(Button *button) {
-    button->memory.state0.state      = BTN_ST_NONE;
-    button->memory.state1.state      = BTN_ST_NONE;
-    button->memory.state2.state      = BTN_ST_NONE;
-    button->memory.state3.state      = BTN_ST_NONE;
-    button->memory.state0.state_life = 0;
-    button->memory.state1.state_life = 0;
-    button->memory.state2.state_life = 0;
-    button->memory.state3.state_life = 0;
-    return;
+button_setup (Button        *button,
+              const uint8_t  pin)
+{
+        /* button_init_state_memory (button); */
+        button->id        = 0;
+        button->pin       = pin;
+        /* button->event     = BTN_EV_NN; */
+        /* button->currState = &button->memory.state0; */
+        /* button->prevState = &button->memory.state1; */
+        button->state = 0;
+        button->timer = 0;
+        button->position_curr = BTN_POS_UNKNOWN;
+        button->position_prev = BTN_POS_UNKNOWN;
+        button->position_age = 0;
+        button->callback_single_press = &button_callback_empty;
+        button->callback_long_press   = &button_callback_empty;
+        button->callback_double_press = &button_callback_empty;
+        button->callback_data         = NULL;
 }
 
 void 
-button_update_state(Button *button, 
-        const uint8_t state, 
-        const uint16_t state_life) 
+button_set_callback_data (Button *button,
+                          void *callback_data)
 {
-    button->memory.state3            = button->memory.state2;
-    button->memory.state2            = button->memory.state1;
-    button->memory.state1            = button->memory.state0;
-    button->memory.state0.state      = state;
-    button->memory.state0.state_life = state_life;
-    return;
-}
-
-bool 
-button_get_doublepressed(Button *button) {
-    return ((button->memory.state3.state == BTN_ST_DOWN) && 
-            (val_is_within_range(button->memory.state3.state_life,BTN_DEL_MIN,BTN_DEL_HOLD)) &&
-            (button->memory.state2.state == BTN_ST_UP) && 
-            (val_is_within_range(button->memory.state2.state_life,BTN_DEL_MIN,BTN_DEL_BMAX)) &&
-            (button->memory.state1.state == BTN_ST_DOWN) &&
-            (val_is_within_range(button->memory.state1.state_life,BTN_DEL_MIN,BTN_DEL_HOLD)));
-}
-
-bool
-button_get_singlepressed(Button *button) {
-    return ((button->memory.state1.state == BTN_ST_DOWN) &&
-            (val_is_within_range(button->memory.state1.state_life,BTN_DEL_MIN,BTN_DEL_HOLD)));
-}
-
-bool
-button_get_held(Button *button) {
-    return ((button->memory.state0.state == BTN_ST_DOWN) &&
-            (val_is_within_range(button->memory.state0.state_life,BTN_DEL_MIN,BTN_DEL_HOLD)));
+        button->callback_data = callback_data;
+        return;
 }
 
 void
-button_interpret_state_memory(Button *button) {
-    /* if (button->event == BTN_EV_NN) { */
-        if (button_get_doublepressed(button)) {
-            button->event = BTN_EV_DP;
-            button_clear_button_state_memory(button);
-        } else if (button_get_singlepressed(button)) {
-            button->event = BTN_EV_SP;
-            button_clear_button_state_memory(button);
-        } else if (button_get_held(button)) {
-            button->event = BTN_EV_HL;
-            button_clear_button_state_memory(button);
-        } else {
-            button->event = BTN_EV_NN;
+button_connect (Button *button,
+                const uint8_t callback_type,
+                void (*callback_function)(void*))
+{
+        switch (callback_type) {
+        case BTN_CB_SINGLE_PRESS:
+                button->callback_single_press = callback_function;
+        case BTN_CB_LONG_PRESS:
+                button->callback_long_press   = callback_function;
+        case BTN_CB_DOUBLE_PRESS:
+                button->callback_double_press = callback_function;
         }
-    /* } else { */
-    /*     button->event = BTN_EV_NN; */
-    /* } */
-    return;
+        return;
 }
 
-void button_update(Button *button, const uint8_t ts) {
-    // Update state and its life
-    uint8_t read_state = BTN_ST_NONE;
-    if (digitalRead(button->pin) == 1) {
-        read_state = BTN_ST_UP;
-    } else {
-        read_state = BTN_ST_DOWN;
-    }
+void 
+button_update (Button        *button,
+               const uint16_t  ts)
+{
+        // Update button position
+        uint8_t read_state = BTN_POS_UNKNOWN;
+        read_state = (digitalRead (button->pin) == 1)
+                     ? BTN_POS_UP : BTN_POS_DOWN;
 
-    if (read_state == button->currState->state) {
-        if (button->currState->state_life+ts < BTN_STATE_LIFE_MAX) {
-            button->currState->state_life += ts;
+        button->timer = (button->timer >= ts) ? (button->timer-ts) : 0;
+
+        bool button_down = ((read_state == BTN_POS_DOWN) &&
+                            (button->position_age > BTN_MIN_STATE_AGE));
+        bool button_up   = ((read_state == BTN_POS_UP) &&
+                            (button->position_age > BTN_MIN_STATE_AGE));
+        bool timed_out   = (button->timer == 0);
+
+        // if (button->pin == 4) {
+        //         if (button_down)
+        //                 digitalWrite(9,HIGH);
+        //         else
+        //                 digitalWrite(9,LOW);
+        //         if (button->state == 1)
+        //                 digitalWrite(6,HIGH);
+        // }
+
+        button->position_prev = button->position_curr;
+        if        (button_down) {
+                button->position_curr = BTN_POS_DOWN;
+        } else if (button_up) {
+                button->position_curr = BTN_POS_UP;
         }
-    } else {
-        button_update_state(button, read_state, 0);
-    }
 
-    // Detect events
-    button_interpret_state_memory(button);
-    return;
+        // Update button position age
+        button->position_age = (button->position_curr == button->position_prev)
+                               ? button->position_age+ts : 0;
+
+        // buttton state machine
+        // based on diagram at http://mathertel.de/Arduino/OneButtonLibrary.aspx
+        uint8_t next_state = button->state;
+        switch (button->state) {
+        case 0: 
+                if (button_down) {
+                        button->timer = BTN_TIMER_LONG_PRESS;
+                        next_state = 1;
+                }
+                break;
+        case 1:
+                if (button->state == 1) {
+                        if (button_up) {
+                                button->timer = BTN_TIMER_SINGLE_PRESS;
+                                next_state = 2;
+                        } else if (timed_out) {
+                                // send long_press
+                                // digitalWrite(10,LOW);
+                                // digitalWrite(8,LOW);
+                                // digitalWrite(7,HIGH);
+                                button->callback_long_press (button->callback_data);
+                                next_state = 6;
+                        }
+                }
+                break;
+        case 2:
+                if (button_down) {
+                        // button->timer = timer3;
+                        next_state = 3;
+                } else if (timed_out) {
+                        // send single_press
+                        // digitalWrite(10,LOW);
+                        // digitalWrite(8,HIGH);
+                        // digitalWrite(7,LOW);
+                        button->callback_single_press (button->callback_data);
+                        next_state = 0;
+                }
+                break;
+        case 3:
+                if (button_up) {
+                        // send double_press
+                        // digitalWrite(10,HIGH);
+                        // digitalWrite(8,LOW);
+                        // digitalWrite(7,LOW);
+                        button->callback_double_press (button->callback_data);
+
+                        /* eventhandler_push_event_copy (eventHandler, new_event); */
+                        next_state = 0;
+                }
+                break;
+        case 6:
+                if (button_up) {
+                        next_state = 0;
+                }
+                break;
+        }
+        button->state = next_state;
+
+        return;
 }
 
 void
-button_clear_button_state_memory(Button *button) {
-    button->memory.state0.state = BTN_ST_NONE;
-    button->memory.state1.state = BTN_ST_NONE;
-    button->memory.state2.state = BTN_ST_NONE;
-    button->memory.state3.state = BTN_ST_NONE;
-    button->memory.state0.state_life = 0;
-    button->memory.state1.state_life = 0;
-    button->memory.state2.state_life = 0;
-    button->memory.state3.state_life = 0;
-    return;
+button_callback_empty (void *data) 
+{
+        return;
 }
-
