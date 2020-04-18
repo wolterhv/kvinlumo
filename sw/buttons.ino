@@ -6,20 +6,16 @@
 #include "buttons.h"
 
 void
-button_setup (Button        *button,
-              const uint8_t  pin)
+button_init (Button        *button,
+             const uint8_t  pin)
 {
-        /* button_init_state_memory (button); */
-        button->id        = 0;
-        button->pin       = pin;
-        /* button->event     = BTN_EV_NN; */
-        /* button->currState = &button->memory.state0; */
-        /* button->prevState = &button->memory.state1; */
-        button->state = 0;
-        button->timer = 0;
-        button->position_curr = BTN_POS_UNKNOWN;
-        button->position_prev = BTN_POS_UNKNOWN;
-        button->position_age = 0;
+        button->id                    = 0;
+        button->pin                   = pin;
+        button->state                 = 0;
+        button->timer                 = 0;
+        button->position_curr         = BTN_POS_UNKNOWN;
+        button->position_prev         = BTN_POS_UNKNOWN;
+        button->position_age          = 0;
         button->callback_single_press = &button_callback_empty;
         button->callback_long_press   = &button_callback_empty;
         button->callback_double_press = &button_callback_empty;
@@ -28,16 +24,16 @@ button_setup (Button        *button,
 
 void 
 button_set_callback_data (Button *button,
-                          void *callback_data)
+                          void   *callback_data)
 {
         button->callback_data = callback_data;
         return;
 }
 
 void
-button_connect (Button *button,
-                const uint8_t callback_type,
-                void (*callback_function)(void*))
+button_connect (Button         *button,
+                const uint8_t   callback_type,
+                void          (*callback_function)(void*))
 {
         switch (callback_type) {
         case BTN_CB_SINGLE_PRESS:
@@ -51,7 +47,7 @@ button_connect (Button *button,
 }
 
 void 
-button_update (Button        *button,
+button_update (Button         *button,
                const uint16_t  ts)
 {
         // Update button position
@@ -62,19 +58,10 @@ button_update (Button        *button,
         button->timer = (button->timer >= ts) ? (button->timer-ts) : 0;
 
         bool button_down = ((read_state == BTN_POS_DOWN) &&
-                            (button->position_age > BTN_MIN_STATE_AGE));
+                            (button->position_age > BTN_TIMER_POS_MIN_AGE));
         bool button_up   = ((read_state == BTN_POS_UP) &&
-                            (button->position_age > BTN_MIN_STATE_AGE));
+                            (button->position_age > BTN_TIMER_POS_MIN_AGE));
         bool timed_out   = (button->timer == 0);
-
-        // if (button->pin == 4) {
-        //         if (button_down)
-        //                 digitalWrite(9,HIGH);
-        //         else
-        //                 digitalWrite(9,LOW);
-        //         if (button->state == 1)
-        //                 digitalWrite(6,HIGH);
-        // }
 
         button->position_prev = button->position_curr;
         if        (button_down) {
@@ -104,9 +91,6 @@ button_update (Button        *button,
                                 next_state = 2;
                         } else if (timed_out) {
                                 // send long_press
-                                // digitalWrite(10,LOW);
-                                // digitalWrite(8,LOW);
-                                // digitalWrite(7,HIGH);
                                 button->callback_long_press (button->callback_data);
                                 next_state = 6;
                         }
@@ -118,9 +102,6 @@ button_update (Button        *button,
                         next_state = 3;
                 } else if (timed_out) {
                         // send single_press
-                        // digitalWrite(10,LOW);
-                        // digitalWrite(8,HIGH);
-                        // digitalWrite(7,LOW);
                         button->callback_single_press (button->callback_data);
                         next_state = 0;
                 }
@@ -128,12 +109,7 @@ button_update (Button        *button,
         case 3:
                 if (button_up) {
                         // send double_press
-                        // digitalWrite(10,HIGH);
-                        // digitalWrite(8,LOW);
-                        // digitalWrite(7,LOW);
                         button->callback_double_press (button->callback_data);
-
-                        /* eventhandler_push_event_copy (eventHandler, new_event); */
                         next_state = 0;
                 }
                 break;

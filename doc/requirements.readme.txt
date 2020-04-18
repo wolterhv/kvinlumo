@@ -1,0 +1,6 @@
+The sheet "Behaviour" defines the patterns the lights must follow according to
+the switch states; this is the so-called "behaviour" of the system.
+
+The sheet "Keys" defines the keys used to define the behaviour of the system.
+
+The sheet "Values" defines the values that the keys can take.
