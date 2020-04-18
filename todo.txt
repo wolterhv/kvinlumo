@@ -1,11 +1,12 @@
-(A) 2020-03-26 Implement input handling capable of handling single presses, double presses and held presses for buttons
-Define project name
-Define file naming conventions
-Define coding style guidelines
-Populate README file
 Clarify requirements documentation
+Define file naming conventions
 Make an index of files and descriptions
-fix ctags (only ino and h files)
-fix that cannot read into /dev/ttyACM0 with cat
+x Populate README file
 fix coding style guidelines
-update this todo list
+implement blinking pattern modification with the potentiometers
+x fix that cannot read into /dev/ttyACM0 with cat
+x (A) 2020-03-26 Implement input handling capable of handling single presses, double presses and held presses for buttons
+x Define coding style guidelines
+x Define project name
+x fix ctags (only ino and h files)
+x update this todo list
